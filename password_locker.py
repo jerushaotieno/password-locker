@@ -24,3 +24,22 @@ class User:
         Method to delete an existing user instance from the user directory
         '''
         User.UserDirectory.remove(self)
+
+class Credentials:
+    '''
+    Create a credentials class for creating new credential objects
+    '''
+    credentialsDirectory = []
+    @classmethod
+
+    def verifyUser(cls, userName, passWord):
+        '''
+        Method to verify if the user is an already existing user in the user directory
+        '''
+        existingUser = ''
+        for user in User.UserDirectory:
+            if (User.UserDirectory == userName and User.passWord == passWord):
+                existingUser == user.UserName
+        return existingUser
+
+        
