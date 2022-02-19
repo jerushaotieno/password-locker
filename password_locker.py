@@ -42,4 +42,12 @@ class Credentials:
                 existingUser == user.UserName
         return existingUser
 
-        
+    def __init__(self, accountName, userEmail, userName, passWord):
+            '''
+            Method defining user credentials to be stored
+            '''
+            self.accountName = accountName
+            self.userEmail = userEmail
+            self.userName = userName
+            self.passWord = passWord
+            

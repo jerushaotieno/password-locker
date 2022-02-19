@@ -2,6 +2,7 @@ import unittest
 
 from setuptools import setup
 from password_locker import User
+from password_locker import Credentials
 
 class UserTest(unittest.TestCase):
     '''
@@ -34,6 +35,24 @@ class UserTest(unittest.TestCase):
         self.newUser.deleteUser()
         self.assertEqual(len(User.UserDirectory),0)
 
+class CredentialsTest(unittest.TestCase):
+    '''
+    Test class to define test cases for the credentials class
+    '''
+    def setUp(self):
+        '''
+        Method will run before credentials test methods run
+        '''
+        self.newCredentials = User('YouTube', 'jaymarshall@gmail.com', 'Jay Marshall', 'dgwyiwydcgig')
+
+    def test_initialization(self):
+        '''
+        Test case checks if object initialization done correctly
+        '''
+        self.assertEqual(self.newCredentials.accountName, 'YouTube')
+        self.assertEqual(self.newCredentials.userEmail, 'jaymarshall@gmail.com')
+        self.assertEqual(self.newCredentials.userName,'Jay Marshall')
+        self.assertEqual(self.newCredentials.passWord, 'dgwyiwydcgig')
 
 if __name__=='__main__':
     unittest.main()
