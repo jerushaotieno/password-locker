@@ -5,7 +5,7 @@ from password_locker import User
 
 class UserTest(unittest.TestCase):
     '''
-    Create a test class to define test cases for the User class
+    Test class to define test cases for the User class
     '''
     def setUp(self):
         '''
@@ -15,10 +15,18 @@ class UserTest(unittest.TestCase):
 
     def test_initialization(self):
         '''
-        Checks if object initialization done correctly
+        Test case checks if object initialization done correctly
         '''
         self.assertEqual(self.newUser.userName,'Jay Marshall')
         self.assertEqual(self.newUser.passWord, 'uyuqfdfiwiq')
+
+    def test_saveUser(self):
+        '''
+        Test case checks if new user instance is saved by checking the length of the user directory
+        '''
+        self.newUser.saveUser()
+        self.assertEqual(len(User.UserDirectory),1)
+
 
 if __name__=='__main__':
     unittest.main()
