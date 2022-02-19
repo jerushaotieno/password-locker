@@ -27,6 +27,13 @@ class UserTest(unittest.TestCase):
         self.newUser.saveUser()
         self.assertEqual(len(User.UserDirectory),1)
 
+    def test_deleteUser(self):
+        '''
+        Test case checks if existing user account is deleted by checking the length of the user directory
+        '''
+        self.newUser.deleteUser()
+        self.assertEqual(len(User.UserDirectory),0)
+
 
 if __name__=='__main__':
     unittest.main()

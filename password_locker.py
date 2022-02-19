@@ -19,3 +19,8 @@ class User:
         '''
         User.UserDirectory.append(self)
 
+    def deleteUser(self):
+        '''
+        Method to delete an existing user instance from the user directory
+        '''
+        User.UserDirectory.remove(self)
