@@ -67,6 +67,15 @@ class CredentialsTest(unittest.TestCase):
         '''
         Credentials.CredentialsDirectory = []
 
+    def testSaveMultipleAccounts(self):
+        '''
+        test case to check if multiple credentials can be saved to the credentials directory
+        '''
+        self.newCredential.saveCredentials()
+        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag')
+        testCredential.saveCredentials()
+        self.assertEqual(len(Credentials.CredentialsDirectory),2)
+
 if __name__=='__main__':
     unittest.main()
 
