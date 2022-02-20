@@ -66,4 +66,14 @@ class Credentials:
             if credential.accountName == accountName:
                 return credential
 
+    @classmethod
+    def credentialsExist(cls, accountName):
+        '''
+        Method to check if entered credentials exist in the credentials directory 
+        '''
+        for credential in cls.CredentialsDirectory:
+            if credential.accountName == accountName:
+                return True
+        return False
+
 
