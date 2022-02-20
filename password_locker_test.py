@@ -109,6 +109,8 @@ class CredentialsTest(unittest.TestCase):
 
         self.assertEqual(Credentials.displayCredentials(), Credentials.CredentialsDirectory)
 
+    
+
 if __name__=='__main__':
     unittest.main()
 

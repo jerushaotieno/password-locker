@@ -1,3 +1,6 @@
+import random
+import string
+
 class User:
     '''
     Create a user class to generate new instances of a user
@@ -83,4 +86,9 @@ class Credentials:
         """
         return cls.CredentialsDirectory
 
-
+    def generatePassword(self, stringLength=10):
+        '''
+        Generate a random password consisting of letters, numbers and special characters 
+        '''
+        randomPassword = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(randomPassword) for i in range(stringLength))
