@@ -76,4 +76,11 @@ class Credentials:
                 return True
         return False
 
+    @classmethod
+    def displayCredentials(cls):
+        """
+        Method to return all entries in the credentials directory
+        """
+        return cls.CredentialsDirectory
+
 
