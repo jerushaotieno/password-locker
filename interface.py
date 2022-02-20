@@ -21,9 +21,9 @@ def displayUser():
     '''
     return User.displayUser()
 
-def userLogin(userName, passWord):
+def signInUser(userName, passWord):
     '''
-    Function checks if a user exists then lets them log into the application
+    Function checks if user exists before letting them log into the application
     '''
     checkUser = Credentials.verifyUser(userName, passWord)
     return checkUser
@@ -67,6 +67,13 @@ def credendtialsExist(accountName):
     '''
     return Credentials.credentialsExist(accountName)
 
+def generatePassword():
+    '''
+    generates a random password for a user
+    '''
+    autoPassword=Credentials.generatePassword()
+    return autoPassword
+
 def copyPassword(accountName):
     '''
     Import pyperclip framework then create a function to copy user emails and passwords
@@ -77,6 +84,7 @@ def copyPassword(accountName):
 
 def passwordLocker():
     print('Welcome to your password manager...\n Please enter one of these short codes to proceed. \n SU --- Sign Up \n SI --- Sign In \n')
+    shortCode=input("").lower().strip()
     if shortCode == "su":
         print("Sign Up")
         print('-' * 50)
@@ -116,7 +124,7 @@ def passwordLocker():
 
     while True:
         print("Use these short codes:\n CNC - Create a new credential \n DC - Display Credentials \n SC - Search a credential \n GP - Generate randomn password \n DC - Delete credential \n CA - Close account \n")
-        shortCcode = input().lower().strip()
+        shortCode = input().lower().strip()
         if shortCode == "cnc":
             print("Create New Credential")
             print("-" * 50)
@@ -138,7 +146,7 @@ def passwordLocker():
 
             saveCredentials(createNewCredential(accountName, userName, passWord))
             print('\n')
-            print(f"Account Credential for: {accountName} - UserName: {userName} - Password:{passWord} created succesfully")
+            print(f"Account Credential for: {accountName} - Username: {userName} - Password:{passWord} created succesfully")
             print('\n')
             
         elif shortCode == 'dc':
@@ -147,7 +155,7 @@ def passwordLocker():
                  
                 print('-' * 50)
                 print('-' * 50)
-                for account in displayCredentials():
+                for accountName in displayCredentials():
                     print(f" Account:{accountName.accountName} \n Username:{userName} \n Password:{passWord}")
                     print('-' * 50)
                 print('-' * 50)
