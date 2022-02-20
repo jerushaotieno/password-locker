@@ -67,5 +67,9 @@ def credendtialsExist(accountName):
     '''
     return Credentials.credentialsExist(accountName)
 
-
+def copyPassword(accountName):
+    '''
+    Import pyperclip framework then create a function to copy user emails and passwords
+    '''
+    return Credentials.copyPassword(accountName)
 
