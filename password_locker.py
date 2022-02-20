@@ -19,12 +19,6 @@ class User:
         '''
         User.UserDirectory.append(self)
 
-#    def deleteUser(self):
-#        '''
-#        Method to delete an existing user instance from the user directory
-#        '''
-#        User.UserDirectory.remove(self)
-
 class Credentials:
     '''
     Create a credentials class for creating new credential objects
@@ -56,3 +50,9 @@ class Credentials:
         Method to store new credential details to the user directory
         '''
         Credentials.CredentialsDirectory.append(self)
+
+    def deleteCredentials(self):
+        '''
+        Method to delete existing credentials from the credentials directory
+        '''
+        Credentials.CredentialsDirectory.remove(self)

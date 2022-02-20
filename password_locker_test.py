@@ -76,6 +76,12 @@ class CredentialsTest(unittest.TestCase):
         testCredential.saveCredentials()
         self.assertEqual(len(Credentials.CredentialsDirectory),2)
 
+    def testDeleteCredentials(self):
+        '''
+        Test method to delete a users credentials from the credentials directory
+        '''
+        
+
 if __name__=='__main__':
     unittest.main()
 
