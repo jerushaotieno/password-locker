@@ -80,6 +80,17 @@ class CredentialsTest(unittest.TestCase):
         '''
         Test method to delete a users credentials from the credentials directory
         '''
+        self.newCredential.saveCredentials()
+        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag')
+        testCredential.saveCredentials()
+
+        self.newCredential.deleteCredentials()
+        self.assertEqual(len(Credentials.CredentialsDirectory),1)
+
+    def testSearchCredentials(self):
+        '''
+        Test case to find a credential using the account name and to display the results of the search
+        '''
         
 
 if __name__=='__main__':

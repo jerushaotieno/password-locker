@@ -56,3 +56,14 @@ class Credentials:
         Method to delete existing credentials from the credentials directory
         '''
         Credentials.CredentialsDirectory.remove(self)
+
+    @classmethod
+    def searchCredentials(cls, accountName):
+        '''
+        Method searches for an account name and returns account matching that name
+        '''
+        for credential in cls.CredentialsDirectory:
+            if credential.accountName == accountName:
+                return credential
+
+
