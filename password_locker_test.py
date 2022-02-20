@@ -28,13 +28,6 @@ class UserTest(unittest.TestCase):
         self.newUser.saveUser()
         self.assertEqual(len(User.UserDirectory),1)
 
-    #def test_deleteUser(self):
-    #    '''
-    #    Test case checks if existing user account is deleted by checking the length of the user directory
-    #    '''
-    #    self.newUser.deleteUser()
-    #    self.assertEqual(len(User.UserDirectory),0)
-
 class CredentialsTest(unittest.TestCase):
     '''
     Test class to define test cases for the credentials class
@@ -91,7 +84,13 @@ class CredentialsTest(unittest.TestCase):
         '''
         Test case to find a credential using the account name and to display the results of the search
         '''
-        
+        self.newCredential.saveCredentials()
+        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag') 
+        testCredential.saveCredentials()
+
+        searchedCredential = Credentials.searchCredentials('Gmail')
+
+        self.assertEqual(searchedCredential.accountName,testCredential.accountName)
 
 if __name__=='__main__':
     unittest.main()
