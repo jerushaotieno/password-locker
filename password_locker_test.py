@@ -36,14 +36,13 @@ class CredentialsTest(unittest.TestCase):
         '''
         Method will run before credentials test methods run
         '''
-        self.newCredential = Credentials('YouTube', 'jaymarshall@gmail.com', 'Jay Marshall', 'dgwyiwydcgig')
+        self.newCredential = Credentials('YouTube', 'Jay Marshall', 'dgwyiwydcgig')
 
     def test_initialization(self):
         '''
         Test case checks if new credentials instance has occurred correctly
         '''
         self.assertEqual(self.newCredential.accountName, 'YouTube')
-        self.assertEqual(self.newCredential.userEmail, 'jaymarshall@gmail.com')
         self.assertEqual(self.newCredential.userName,'Jay Marshall')
         self.assertEqual(self.newCredential.passWord, 'dgwyiwydcgig')
 
@@ -65,7 +64,7 @@ class CredentialsTest(unittest.TestCase):
         test case to check if multiple credentials can be saved to the credentials directory
         '''
         self.newCredential.saveCredentials()
-        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag')
+        testCredential = Credentials('Gmail', 'Mano Lay', 'iyfayafyvgag')
         testCredential.saveCredentials()
         self.assertEqual(len(Credentials.CredentialsDirectory),2)
 
@@ -74,7 +73,7 @@ class CredentialsTest(unittest.TestCase):
         Test method to delete a users credentials from the credentials directory
         '''
         self.newCredential.saveCredentials()
-        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag')
+        testCredential = Credentials('Gmail', 'Mano Lay', 'iyfayafyvgag')
         testCredential.saveCredentials()
 
         self.newCredential.deleteCredentials()
@@ -85,7 +84,7 @@ class CredentialsTest(unittest.TestCase):
         Test case to find a credential using the account name and to display the results of the search
         '''
         self.newCredential.saveCredentials()
-        testCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag') 
+        testCredential = Credentials('Gmail', 'Mano Lay', 'iyfayafyvgag') 
         testCredential.saveCredentials()
 
         searchedCredential = Credentials.searchCredentials('Gmail')
@@ -97,7 +96,7 @@ class CredentialsTest(unittest.TestCase):
         Test checks and returns True if a credential exists else it returns False if it does not exist
         '''
         self.newCredential.saveCredentials()
-        searchCredential = Credentials('Gmail', 'manolay@gmail.com', 'Mano Lay', 'iyfayafyvgag')  
+        searchCredential = Credentials('Gmail', 'Mano Lay', 'iyfayafyvgag')  
         searchCredential.saveCredentials()
         credentialsFound = Credentials.credentialsExist('Gmail')
         self.assertTrue(credentialsFound)
